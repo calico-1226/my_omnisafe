@@ -19,7 +19,7 @@ from typing import Dict
 import torch
 
 from omnisafe.common.buffer.onpolicy_buffer import OnPolicyBuffer
-from omnisafe.typing import AdvatageEstimator, OmnisafeSpace
+from omnisafe.typing import AdvantageEstimator, OmnisafeSpace
 from omnisafe.utils import distributed
 
 
@@ -34,7 +34,7 @@ class VectorOnPolicyBuffer(OnPolicyBuffer):
         gamma: float,
         lam: float,
         lam_c: float,
-        advantage_estimator: AdvatageEstimator,
+        advantage_estimator: AdvantageEstimator,
         penalty_coefficient: float,
         standardized_adv_r: bool,
         standardized_adv_c: bool,

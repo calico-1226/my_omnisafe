@@ -63,6 +63,7 @@ def get_activation(
         'sigmoid': nn.Sigmoid,
         'softplus': nn.Softplus,
         'tanh': nn.Tanh,
+        'softmax': nn.Softmax,
     }
     assert activation in activations
     return activations[activation]

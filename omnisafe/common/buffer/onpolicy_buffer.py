@@ -19,7 +19,7 @@ from typing import Dict, Tuple
 import torch
 
 from omnisafe.common.buffer.base import BaseBuffer
-from omnisafe.typing import AdvatageEstimator, OmnisafeSpace
+from omnisafe.typing import AdvantageEstimator, OmnisafeSpace
 from omnisafe.utils import distributed
 from omnisafe.utils.math import discount_cumsum
 
@@ -39,7 +39,7 @@ class OnPolicyBuffer(BaseBuffer):  # pylint: disable=too-many-instance-attribute
         gamma: float,
         lam: float,
         lam_c: float,
-        advantage_estimator: AdvatageEstimator,
+        advantage_estimator: AdvantageEstimator,
         penalty_coefficient: float = 0,
         standardized_adv_r: bool = False,
         standardized_adv_c: bool = False,

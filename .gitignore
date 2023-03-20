@@ -1,6 +1,8 @@
 ##### Project Specification #####
 **/runs
 **/exp-x
+**/data
+**/checkpoints
 
 ##### Python.gitignore #####
 # Byte-compiled / optimized / DLL files

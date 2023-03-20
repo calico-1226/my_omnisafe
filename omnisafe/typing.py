@@ -34,14 +34,14 @@ from gymnasium.spaces import Box, Discrete
 RenderFrame = TypeVar('RenderFrame')
 OmnisafeSpace = Union[Box, Discrete]
 Activation = Literal['identity', 'relu', 'sigmoid', 'softplus', 'tanh']
-AdvatageEstimator = Literal['gae', 'gae-rtg', 'vtrace', 'plain']
+AdvantageEstimator = Literal['gae', 'gae-rtg', 'vtrace', 'plain']
 InitFunction = Literal['kaiming_uniform', 'xavier_normal', 'glorot', 'xavier_uniform', 'orthogonal']
 CriticType = Literal['v', 'q']
 ActorType = Literal['gaussian_learning', 'gaussian_sac', 'mlp']
 
 __all__ = [
     'Activation',
-    'AdvatageEstimator',
+    'AdvantageEstimator',
     'InitFunction',
     'Callable',
     'List',

@@ -26,3 +26,5 @@ from omnisafe.models.base import Actor, Critic
 from omnisafe.models.critic import CriticBuilder
 from omnisafe.models.critic.q_critic import QCritic
 from omnisafe.models.critic.v_critic import VCritic
+from omnisafe.models.custom_modes.state_classifier_model import MLPStateClassifierModel
+from omnisafe.models.custom_modes.value_model import MLPValueModel
