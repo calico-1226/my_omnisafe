@@ -2,28 +2,30 @@
 <!-- markdownlint-disable html -->
 
 <div align="center">
-  <img src="https://github.com/PKU-MARL/omnisafe/raw/HEAD/images/logo.png" width="75%"/>
+  <img src="https://github.com/OmniSafeAI/omnisafe/raw/HEAD/images/logo.png" width="75%"/>
 </div>
 
 <div align="center">
 
-  [![Organization](https://img.shields.io/badge/Organization-PKU_MARL-blue.svg)](https://github.com/PKU-MARL)
+  [![Organization](https://img.shields.io/badge/Organization-PKU_MARL-blue.svg)](https://github.com/OmniSafeAI)
   [![PyPI](https://img.shields.io/pypi/v/omnisafe?logo=pypi)](https://pypi.org/project/omnisafe)
+  [![tests](https://img.shields.io/github/actions/workflow/status/OmniSafeAI/omnisafe/test.yml?label=tests&logo=github)](https://github.com/OmniSafeAI/omnisafe/tree/HEAD/tests)
   [![Documentation Status](https://img.shields.io/readthedocs/omnisafe?logo=readthedocs)](https://omnisafe.readthedocs.io)
   [![Downloads](https://static.pepy.tech/personalized-badge/omnisafe?period=total&left_color=grey&right_color=blue&left_text=downloads)](https://pepy.tech/project/omnisafe)
-  [![GitHub Repo Stars](https://img.shields.io/github/stars/PKU-MARL/omnisafe?color=brightgreen&logo=github)](https://github.com/PKU-MARL/OmniSafe/stargazers)
+  [![GitHub Repo Stars](https://img.shields.io/github/stars/OmniSafeAI/omnisafe?color=brightgreen&logo=github)](https://github.com/OmniSafeAI/OmniSafe/stargazers)
   [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-  [![License](https://img.shields.io/github/license/PKU-MARL/OmniSafe?label=license)](#license)
-  [![CodeCov](https://img.shields.io/codecov/c/github/PKU-MARL/omnisafe/main?logo=codecov)](https://app.codecov.io/gh/PKU-MARL/omnisafe)
+  [![License](https://img.shields.io/github/license/OmniSafeAI/OmniSafe?label=license)](#license)
+  [![CodeCov](https://img.shields.io/codecov/c/github/OmniSafeAI/omnisafe/main?logo=codecov)](https://app.codecov.io/gh/OmniSafeAI/omnisafe)
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OmniSafeAI/omnisafe/)
 
 </div>
 
 <p align="center">
   <a href="https://omnisafe.readthedocs.io">Documentation</a> |
-  <a href="https://github.com/PKU-MARL/omnisafe#implemented-algorithms">Implemented Algorithms</a> |
-  <a href="https://github.com/PKU-MARL/omnisafe#installation">Installation</a> |
-  <a href="https://github.com/PKU-MARL/omnisafe#getting-started">Getting Started</a> |
-  <a href="https://github.com/PKU-MARL/omnisafe#license">License</a>
+  <a href="https://github.com/OmniSafeAI/omnisafe#implemented-algorithms">Implemented Algorithms</a> |
+  <a href="https://github.com/OmniSafeAI/omnisafe#installation">Installation</a> |
+  <a href="https://github.com/OmniSafeAI/omnisafe#getting-started">Getting Started</a> |
+  <a href="https://github.com/OmniSafeAI/omnisafe#license">License</a>
 </p>
 
 --------------------------------------------------------------------------------
@@ -53,11 +55,8 @@ OmniSafe addresses these issues by providing more than 40 experimentally validat
   - [Examples](#examples)
     - [Try with CLI](#try-with-cli)
 - [Getting Started](#getting-started)
-    - [Important Hints](#important-hints)
-  - [1. Run Agent from preset yaml file](#1-run-agent-from-preset-yaml-file)
-  - [2. Run agent with custom cfg](#2-run-agent-with-custom-cfg)
-  - [3. Run Agent from custom terminal config](#3-run-agent-from-custom-terminal-config)
-  - [4. Evaluate Saved Policy](#4-evaluate-saved-policy)
+  - [Important Hints](#important-hints)
+  - [Quickstart: Colab in the Cloud](#quickstart-colab-in-the-cloud)
 - [Changelog](#changelog)
 - [The OmniSafe Team](#the-omnisafe-team)
 - [License](#license)
@@ -135,11 +134,13 @@ The supported interface algorithms currently include:
 
 OmniSafe requires Python 3.8+ and PyTorch 1.10+.
 
+> We support and test for Python 3.8, 3.9, 3.10 on Linux. The support of M1 and M2 versions of macOS is undergoing internal verification. We will accept PRs related to Windows, but do not officially support it.
+
 #### Install from source
 
 ```bash
 # Clone the repo
-git clone https://github.com/PKU-MARL/omnisafe
+git clone https://github.com/OmniSafeAI/omnisafe
 cd omnisafe
 
 # Create a conda environment
@@ -211,7 +212,7 @@ python train_policy.py --algo PPOLag --env-id SafetyPointGoal1-v0 --parallel 1 -
     <td>Safe Velocity</td>
     <td>Velocity</td>
     <td>HalfCheetah, Hopper, Swimmer, Walker2d, Ant, Humanoid</td>
-    <td>SafetyHumanoidVelocity-v4</td>
+    <td>SafetyHumanoidVelocity-v1</td>
   </tr>
 </tbody>
 </table>
@@ -225,7 +226,7 @@ More information about environments, please refer to [Safety Gymnasium](https://
 
 **A video example**
 
-![Segmentfault](https://github.com/PKU-MARL/omnisafe/blob/main/images/CLI_example.svg)
+![Segmentfault](https://github.com/OmniSafeAI/omnisafe/blob/main/images/CLI_example.svg)
 
 ```bash
 pip install omnisafe
@@ -252,79 +253,24 @@ omnisafe train-config ./saved_source/train_config.yaml
 --------------------------------------------------------------------------------
 
 ## Getting Started
-#### Important Hints
+### Important Hints
 - `train_cfgs:torch_threads` is especially important for training speed, and is varying with users' machine, this value shouldn't be too small or too large.
-### 1. Run Agent from preset yaml file
 
-```python
-import omnisafe
+### Quickstart: Colab in the Cloud
+Explore OmniSafe easily and quickly through a series of colab notebooks:
+- [Getting Started](https://colab.research.google.com/github/OmniSafeAI/omnisafe/blob/main/tutorials/English/1.Getting_Started.ipynb) Introduce the basic usage of OmniSafe so that users can quickly hand on it.
+- [CLI Command](https://colab.research.google.com/github/OmniSafeAI/omnisafe/blob/main/tutorials/English/2.CLI_Command.ipynb) Introduce how to use the CLI tool of OmniSafe.
 
-env_id = 'SafetyPointGoal1-v0'
-agent = omnisafe.Agent('PPOLag', env_id)
-agent.learn()
-```
-
-### 2. Run agent with custom cfg
-```python
-import omnisafe
-
-env_id = 'SafetyPointGoal1-v0'
-custom_cfgs = {
-    'train_cfgs': {
-        'total_steps': 1024000,
-        'vector_env_nums': 1,
-        'parallel': 1,
-    },
-    'algo_cfgs': {
-        'update_cycle': 2048,
-        'update_iters': 1,
-    },
-    'logger_cfgs': {
-        'use_wandb': False,
-    },
-}
-agent = omnisafe.Agent('PPOLag', env_id, custom_cfgs=custom_cfgs)
-agent.learn()
-```
-
-### 3. Run Agent from custom terminal config
-
-You can also run agent from a custom terminal config. You can set any config in a corresponding yaml file.
-
-For example, you can run `PPOLag` agent on `SafetyPointGoal1-v0` environment with `total_steps=1024000`, `vector_env_nums=1` and `parallel=1` by:
-
-```bash
-cd examples
-python train_policy.py --algo PPOLag --env-id SafetyPointGoal1-v0 --parallel 1 --total-steps 1024000 --device cpu --vector-env-nums 1 --torch-threads 1
-```
-
-### 4. Evaluate Saved Policy
-
-```python
-import os
-
-import omnisafe
-
-
-# Just fill your experiment's log directory in here.
-# Such as: ~/omnisafe/runs/SafetyPointGoal1-v0/CPO/seed-000-2022-12-25_14-45-05
-LOG_DIR = ''
-
-evaluator = omnisafe.Evaluator()
-for item in os.scandir(os.path.join(LOG_DIR, 'torch_save')):
-    if item.is_file() and item.name.split('.')[-1] == 'pt':
-        evaluator.load_saved_model(save_dir=LOG_DIR, model_name=item.name)
-        evaluator.render(num_episode=10, camera_name='track', width=256, height=256)
-```
+We take great pleasure in collaborating with our users to create tutorials in various languages. Please refer to our list of currently supported languages. If you are interested in translating the tutorial into a new language or improving an existing version, kindly submit a PR to us."
 
 --------------------------------------------------------------------------------
 
 ## Changelog
-See [CHANGELOG.md](https://github.com/PKU-MARL/omnisafe/blob/main/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/OmniSafeAI/omnisafe/blob/main/CHANGELOG.md).
 
 ## The OmniSafe Team
 
-OmniSafe is mainly developed by the SafeRL research team directed by Prof. [Yaodong Yang](https://github.com/orgs/PKU-MARL/people/PKU-YYang). Our SafeRL research team members include [Borong Zhang](https://github.com/muchvo), [Jiayi Zhou](https://github.com/Gaiejj), [JTao Dai](https://github.com/calico-1226), [Weidong Huang](https://github.com/hdadong), [Ruiyang Sun](https://github.com/rockmagma02), [Xuehai Pan](https://github.com/XuehaiPan) and [Jiaming Ji](https://github.com/zmsn-2077). If you have any questions in the process of using omnisafe, don't hesitate to ask your questions on [the GitHub issue page](https://github.com/PKU-MARL/omnisafe/issues/new/choose), we will reply to you in 2-3 working days.
+OmniSafe is mainly developed by the SafeRL research team directed by Prof. [Yaodong Yang](https://github.com/orgs/OmniSafeAI/people/PKU-YYang). Our SafeRL research team members include [Borong Zhang](https://github.com/muchvo), [Jiayi Zhou](https://github.com/Gaiejj), [JTao Dai](https://github.com/calico-1226), [Weidong Huang](https://github.com/hdadong), [Ruiyang Sun](https://github.com/rockmagma02), [Xuehai Pan](https://github.com/XuehaiPan) and [Jiaming Ji](https://github.com/zmsn-2077). If you have any questions in the process of using omnisafe, don't hesitate to ask your questions on [the GitHub issue page](https://github.com/OmniSafeAI/omnisafe/issues/new/choose), we will reply to you in 2-3 working days.
 
 ## License
 

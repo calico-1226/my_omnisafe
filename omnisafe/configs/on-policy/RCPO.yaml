@@ -116,7 +116,7 @@ defaults:
       activation: tanh
       # out_activation: tanh
       # learning rate
-      lr: None
+      lr: ~
     critic:
       # hidden layer sizes
       hidden_sizes: [64, 64]
@@ -135,7 +135,7 @@ defaults:
     # Type of lagrangian optimizer
     lambda_optimizer: "Adam"
 
-SafetyHumanoidVelocity-v4:
+SafetyHumanoidVelocity-v1:
   # algorithm configurations
   algo_cfgs:
     # normalize reward

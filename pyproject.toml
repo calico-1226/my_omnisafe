@@ -32,7 +32,7 @@ dependencies = [
     "wandb >= 0.13.0",
     "psutil >= 5.9.1",
     "scipy >= 1.7.0",
-    "joblib >= 1.2.0",
+    "joblib",
     "pyyaml >= 6.0",
     "types-pyyaml >= 6.0",
     "xmltodict >= 0.13.0",
@@ -46,10 +46,10 @@ dependencies = [
 dynamic = ["version", "entry-points"]
 
 [project.urls]
-Homepage = "https://github.com/PKU-MARL/omnisafe"
-Repository = "https://github.com/PKU-MARL/omnisafe"
+Homepage = "https://github.com/OmniSafeAI/omnisafe"
+Repository = "https://github.com/OmniSafeAI/omnisafe"
 Documentation = "https://omnisafe.readthedocs.io"
-"Bug Report" = "https://github.com/PKU-MARL/omnisafe/issues"
+"Bug Report" = "https://github.com/OmniSafeAI/omnisafe/issues"
 
 [project.optional-dependencies]
 lint = [
