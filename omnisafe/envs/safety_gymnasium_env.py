@@ -78,6 +78,11 @@ class SafetyGymnasiumEnv(CMDP):
         'SafetyWalker2dVelocity-v4',
         'SafetyAntVelocity-v4',
         'SafetyHumanoidVelocity-v4',
+        # !customized environments
+        'SafetyPointGoal3-v0',
+        'SafetyPointButton3-v0',
+        'SafetyPointPush3-v0',
+        'SafetyPointCircle3-v0',
     ]
     need_auto_reset_wrapper = False
     need_time_limit_wrapper = False
